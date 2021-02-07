@@ -19,8 +19,8 @@
 # List employee with id=1
 - curl -v -X DELETE localhost:8080/employees/1
 
-# Update employee
-- curl -v -X PUT -H 'Content-type:application/json' -d '{"name": "Samir Hymed Shaik", "role": "Technical Architect"}' localhost:8080/employees/15
+# Update employee with id=1
+- curl -v -X PUT -H 'Content-type:application/json' -d '{"name": "Samir Hymed Shaik", "role": "Technical Architect"}' localhost:8080/employees/1
 
 # Start application
 - mvn clean spring-boot:run
