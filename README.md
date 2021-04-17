@@ -13,7 +13,51 @@
 - convert .pem to .ppk using puttygen and follow instruction in the video to connect to running ec2 instance
 
 # Install Tomcat 9 on EC2 instance
-- https://linuxize.com/post/how-to-install-tomcat-9-on-centos-7/
+```
+sudo yum install -y java-1.8.0-openjdk.x86_64
+
+sudo groupadd --system tomcat
+
+sudo useradd -d /usr/share/tomcat -r -s /bin/false -g tomcat tomcat
+
+export TOMCAT_VER="9.0.39"
+
+sudo wget https://archive.apache.org/dist/tomcat/tomcat-9/v${TOMCAT_VER}/bin/apache-tomcat-${TOMCAT_VER}.tar.gz
+
+sudo tar xvf apache-tomcat-${TOMCAT_VER}.tar.gz -C /usr/share/
+
+sudo ln -s /usr/share/apache-tomcat-${TOMCAT_VER}/ /usr/share/tomcat
+
+sudo chown -R tomcat:tomcat /usr/share/tomcat
+
+sudo chown -R tomcat:tomcat /usr/share/apache-tomcat-${TOMCAT_VER}/ 
+
+sudo tee /etc/systemd/system/tomcat.service<<EOF
+[Unit]
+Description=Tomcat Server
+After=syslog.target network.target
+
+[Service]
+Type=forking
+User=tomcat
+Group=tomcat
+
+Environment=JAVA_HOME=/usr/lib/jvm/jre
+Environment='JAVA_OPTS=-Djava.awt.headless=true'
+Environment=CATALINA_HOME=/usr/share/tomcat
+Environment=CATALINA_BASE=/usr/share/tomcat
+Environment=CATALINA_PID=/usr/share/tomcat/temp/tomcat.pid
+Environment='CATALINA_OPTS=-Xms512M -Xmx1024M'
+ExecStart=/usr/share/tomcat/bin/catalina.sh start
+ExecStop=/usr/share/tomcat/bin/catalina.sh stop
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+
+sudo systemctl enable tomcat
+```
 
 # Create Schema
 - create database khandola_db; -- Creates the new database;
