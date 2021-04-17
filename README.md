@@ -60,6 +60,10 @@ sudo systemctl enable tomcat
 ```
 # Setup Aurora Serverless
 - https://aws.amazon.com/getting-started/hands-on/building-serverless-applications-with-amazon-aurora-serverless/
+
+# Connect to Aurora from Local
+- You basically need to spin up a new EC2 instance and then use the MySQL SSH server
+- https://medium.com/misfit-technologies/connecting-to-a-serverless-aurora-database-locally-cd479cd5aa42
 - 
 # Create Schema
 - create database khandola_db; -- Creates the new database;
