@@ -58,7 +58,9 @@ EOF
 
 sudo systemctl enable tomcat
 ```
-
+# Setup Aurora Serverless
+- https://aws.amazon.com/getting-started/hands-on/building-serverless-applications-with-amazon-aurora-serverless/
+- 
 # Create Schema
 - create database khandola_db; -- Creates the new database;
 - create user 'springuser'@'%' identified by 'ThePassword'; -- Creates the user
