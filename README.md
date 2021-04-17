@@ -2,16 +2,33 @@
 - https://dev.mysql.com/downloads/installer/
 - https://dev.mysql.com/doc/refman/8.0/en/installing.html
 
+# Download and install putty
+- https://www.putty.org/
+
+# Download and install Git
+- https://git-scm.com/downloads
+
 # Create Schema
-- create database db_example; -- Creates the new database;
+- create database khandola_db; -- Creates the new database;
 - create user 'springuser'@'%' identified by 'ThePassword'; -- Creates the user
-- grant all on db_example.* to 'springuser'@'%'; -- Gives all privileges to the new user on the newly created database
+- grant all on khandola_db.* to 'springuser'@'%'; -- Gives all privileges to the new user on the newly created database
+
+# Create Tabl
+```
+CREATE TABLE `khandola_db`.`employee` (
+`id` INT NOT NULL,
+`name` VARCHAR(255) NULL,
+`role` VARCHAR(255) NULL,
+PRIMARY KEY (`id`));
+```
+# Insert record
+- INSERT INTO `khandola_db`.`employee` (`id`, `name`, `role`) VALUES ('1', 'Samir', 'Architect');
 
 # List all employees if application created anything
 - select * from employee;
 
 # Create new employee
-- curl -v -X POST -H 'Content-type:application/json' -d '{"name": "Samir Shaik", "role": "Technical Architect"}' localhost:8080/employees
+- curl -v -X POST -H 'Content-type:application/json' -d '{"name": "Samir Shaik", "role": "Technical Architect"}' localhost:8080/khandola-demo-svc/employees
 
 # List all employees
 - curl -v localhost:8080/employees | json_pp
@@ -24,4 +41,3 @@
 
 # Start application
 - mvn clean spring-boot:run
-
