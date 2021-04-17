@@ -60,11 +60,13 @@ sudo systemctl enable tomcat
 ```
 
 # Create Schema
-- create database khandola_db; -- Creates the new database;
-- create user 'springuser'@'%' identified by 'ThePassword'; -- Creates the user
-- grant all on khandola_db.* to 'springuser'@'%'; -- Gives all privileges to the new user on the newly created database
+```
+create database khandola_db; -- Creates the new database;
+create user 'khandolauser'@'%' identified by 's3cr3t2021'; -- Creates the user
+grant all on khandola_db.* to 'khandolauser'@'%'; -- Gives all privileges to the new user on the newly created database
+```
 
-# Create Tabl
+# Create Table
 ```
 CREATE TABLE `khandola_db`.`employee` (
 `id` INT NOT NULL,
@@ -72,7 +74,7 @@ CREATE TABLE `khandola_db`.`employee` (
 `role` VARCHAR(255) NULL,
 PRIMARY KEY (`id`));
 ```
-# Insert record
+# Insert record in the table
 - INSERT INTO `khandola_db`.`employee` (`id`, `name`, `role`) VALUES ('1', 'Samir', 'Architect');
 
 # List all employees if application created anything
