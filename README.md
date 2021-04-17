@@ -8,11 +8,18 @@
 # Download and install Git
 - https://git-scm.com/downloads
 
-# How to connect to EC2 instance
-- ssh -i khandola-demo-key.pem ec2-user@54.167.10.6
-- convert .pem to .ppk using puttygen and follow instruction in the video to connect to running ec2 instance
+# Create EC2 instance
+- Create EC2 instance using AWS management console
+
+# Connect to EC2 instance
+You have 2 ways to connect to the newly commissioned EC2 instance. 
+1. If you have GIT Bash use the following command:
+   - ssh -i khandola-demo-key.pem ec2-user@54.167.10.6
+
+2. If you would like to use Putty instead, make sure you convert .pem to .ppk using PuttyGen and follow instruction in the video to connect to running ec2 instance
 
 # Install Tomcat 9 on EC2 instance
+Once you are connected to the EC2 instance you can use following commands to install Tomcat9 on the instance.
 ```
 sudo yum install -y java-1.8.0-openjdk.x86_64
 
