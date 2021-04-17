@@ -65,6 +65,20 @@ EOF
 
 sudo systemctl enable tomcat
 ```
+# Update to $TOMCAT_HOME/conf/context.xml
+```
+<Resource name="jdbc/khandola" 
+			  auth="Container" 
+			  type="javax.sql.DataSource"
+              maxTotal="100" 
+			  maxIdle="30" 
+			  maxWaitMillis="10000"
+              username="khandolauser" 
+			  password="s3cr3t2021" 
+			  driverClassName="com.mysql.cj.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/khandola_db" />
+```
+
 # Setup Aurora Serverless
 - https://aws.amazon.com/getting-started/hands-on/building-serverless-applications-with-amazon-aurora-serverless/
 
