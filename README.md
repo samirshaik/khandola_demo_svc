@@ -8,6 +8,13 @@
 # Download and install Git
 - https://git-scm.com/downloads
 
+# How to connect to EC2 instance
+- ssh -i khandola-demo-key.pem ec2-user@54.167.10.6
+- convert .pem to .ppk using puttygen and follow instruction in the video to connect to running ec2 instance
+
+# Install Tomcat 9 on EC2 instance
+- https://linuxize.com/post/how-to-install-tomcat-9-on-centos-7/
+
 # Create Schema
 - create database khandola_db; -- Creates the new database;
 - create user 'springuser'@'%' identified by 'ThePassword'; -- Creates the user
